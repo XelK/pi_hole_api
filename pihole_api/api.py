@@ -36,9 +36,10 @@ class Pihole:
             return re.findall(regex, response.text, re.MULTILINE)[0][1]
         return None
 
-def dns(pihole, action, ip_address=None, domain=None):
+
+def dns(pihole: Pihole, action: str, ip_address=None, domain=None) -> dict:
     """
-    Execute dns calls:
+    Execute dns calls. Return dictionary
         - get:
             - permit list dns entries
             - return: list of custom-dns configured
@@ -56,10 +57,11 @@ def dns(pihole, action, ip_address=None, domain=None):
     if action == "get":
         response = pihole.session.post(dns_url, params).json()
     if action in ("add", "delete"):
+        if ip_address is None or domain is None:
+            return False
         params.update({"ip": ip_address, "domain": domain})
         response = pihole.session.post(dns_url, params).json()
         # print(l["success"], l["message"])
-    print(response)
     return response
 
 
@@ -69,7 +71,7 @@ if __name__ == "__main__":
     pihole = Pihole(os.environ["PI_URL"], os.environ["PI_PSW"])
 
     dns(pihole, "get")
-
     dns(pihole, "get")
-    dns(pihole, "add", ip_address="1.1.1.1", domain="pippo.com")
-    dns(pihole, "delete", ip_address="1.1.1.1", domain="pippo.com")
+    print(dns(pihole, "add", ip_address="1.1.1.1"))
+    print(dns(pihole, "add", ip_address="1.1.1.1", domain="pippo.com"))
+    print(dns(pihole, "delete", ip_address="1.1.1.1", domain="pippo.com"))
