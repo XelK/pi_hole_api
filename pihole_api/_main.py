@@ -5,12 +5,12 @@ Require set env variables:
 @PI_URL: url of pihole server
 @PI_PSW: password of pihole server
 """
-import os
 import re
 import requests
-from dotenv import load_dotenv
+
 
 from ._dns import dns as _dns
+from ._dns import cname as _cname
 
 
 class Pihole:
@@ -54,3 +54,19 @@ class Pihole:
                 - return: status of operation
         """
         return _dns(self, action, ip_address, domain)
+    def cname(self, action=None, domain=None, target=None) -> dict:
+        """
+        Execute dns calls. Return dictionary
+            - get:
+                - permit list dns entries
+                - return: list of custom-dns configured
+            - add:
+                - permit add dns entry
+                - require: ip address and domain
+                - return: status of operation
+            - del:
+                - permit remove dns entry
+                - require: ip address and domain
+                - return: status of operation
+        """
+        return _cname(self, action, domain, target)

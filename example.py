@@ -9,8 +9,14 @@ if __name__ == "__main__":
 
     print(pihole.dns())
     print(pihole.dns("get"))
-    print(pihole.dns("add", ip_address="1.1.1.1"))
-    print(pihole.dns("add", ip_address="1.1.1.1", domain="pippo.com"))
-    print(pihole.dns("get"))
-    print(pihole.dns("delete", ip_address="1.1.1.1", domain="pippo.com"))
-    print(pihole.dns("get"))
+    # print(pihole.dns("add", ip_address="1.1.1.1"))
+    # print(pihole.dns("add", ip_address="1.1.1.1", domain="pippo.com"))
+    # print(pihole.dns("get"))
+    # print(pihole.dns("delete", ip_address="1.1.1.1", domain="pippo.com"))
+    # print(pihole.dns("get"))
+
+    print(pihole.cname("get"))
+    print(pihole.cname("add","bbb.com","dns.xelk.me"))
+    print(pihole.cname("delete","bbb.com","dns.xelk.me"))
+    print(pihole.cname("get"))
+
