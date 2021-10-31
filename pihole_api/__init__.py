@@ -1,2 +1,1 @@
-from .main import Pihole
-from .dns import dns
+from ._main import Pihole

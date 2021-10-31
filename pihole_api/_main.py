@@ -10,7 +10,7 @@ import re
 import requests
 from dotenv import load_dotenv
 
-import dns
+from ._dns import dns as _dns
 
 
 class Pihole:
@@ -53,18 +53,4 @@ class Pihole:
                 - require: ip address and domain
                 - return: status of operation
         """
-        return dns.dns(self, action, ip_address, domain)
-
-
-if __name__ == "__main__":
-
-    load_dotenv()
-    pihole = Pihole(os.environ["PI_URL"], os.environ["PI_PSW"])
-
-    print(pihole.dns())
-    print(pihole.dns("get"))
-    print(pihole.dns("add", ip_address="1.1.1.1"))
-    print(pihole.dns("add", ip_address="1.1.1.1", domain="pippo.com"))
-    print(pihole.dns("get"))
-    print(pihole.dns("delete", ip_address="1.1.1.1", domain="pippo.com"))
-    print(pihole.dns("get"))
+        return _dns(self, action, ip_address, domain)
