@@ -54,6 +54,7 @@ class Pihole:
                 - return: status of operation
         """
         return _dns(self, action, ip_address, domain)
+
     def cname(self, action=None, domain=None, target=None) -> dict:
         """
         Execute dns calls. Return dictionary

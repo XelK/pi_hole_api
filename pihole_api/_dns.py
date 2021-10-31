@@ -33,7 +33,8 @@ def dns(pihole, action: None, ip_address=None, domain=None) -> dict:
             _response = pihole.session.post(_dns_url, _params).json()
     return _response
 
-def cname(pihole, action: None,  domain=None, target=None) -> dict:
+
+def cname(pihole, action: None, domain=None, target=None) -> dict:
     """
     Execute cname calls. Return dictionary
         - get:
@@ -56,7 +57,7 @@ def cname(pihole, action: None,  domain=None, target=None) -> dict:
     if action in _actions[0]:
         _response = pihole.session.post(_cname_url, _params).json()
     if action in _actions[1:]:
-        if domain is None or target is None :
+        if domain is None or target is None:
             _response = {"success": False, "message": "Provide Source/Target"}
         else:
             _params.update({"domain": domain, "target": target})
