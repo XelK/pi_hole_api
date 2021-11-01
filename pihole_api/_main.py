@@ -1,9 +1,6 @@
 """
 Pihole python API client.
 Permit send commands to pihole server via http calls
-Require set env variables:
-@PI_URL: url of pihole server
-@PI_PSW: password of pihole server
 """
 import re
 import requests
@@ -17,6 +14,7 @@ from ._list import get_domains as _get_domains
 from ._list import add_domain as _add_domain
 from ._list import replace_domain as _replace_domain
 from ._list import delete_domain as _delete_domain
+
 
 class Pihole:
     """
@@ -79,36 +77,36 @@ class Pihole:
 
     def disable(self, time=None) -> dict:
         """
-        Permit disable protection
+        Disable protection
         """
-        return _disable(self,time)
+        return _disable(self, time)
 
     def enable(self) -> dict:
         """
-        Permit disable protection
+        Enable protection
         """
         return _enable(self)
 
-    def get_domains(self,type) -> dict:
+    def get_domains(self, type) -> dict:
         """
-        add/remove domain to whitelist/blacklist
+        list domains from whitelist/blacklist
         """
-        return _get_domains(self,type)
-    
-    def add_domain(self,type,domain,comment=None) -> dict:
+        return _get_domains(self, type)
+
+    def add_domain(self, type, domain, comment=None) -> dict:
         """
-        add/remove domain to whitelist/blacklist
+        add domain to whitelist/blacklist
         """
-        return _add_domain(self,type,domain,comment)
-    
-    def replace_domain(self,type,domain,comment=None) -> dict:
+        return _add_domain(self, type, domain, comment)
+
+    def replace_domain(self, type, domain, comment=None) -> dict:
         """
-        add/remove domain to whitelist/blacklist
+        replace domain in whitelist/blacklist
         """
-        return _replace_domain(self,type,domain,comment)
-    
-    def delete_domain(self,type,domain,comment=None) -> dict:
+        return _replace_domain(self, type, domain, comment)
+
+    def delete_domain(self, type, domain, comment=None) -> dict:
         """
-        add/remove domain to whitelist/blacklist
+        remove domain from whitelist/blacklist
         """
-        return _delete_domain(self,type,domain,comment)
+        return _delete_domain(self, type, domain, comment)

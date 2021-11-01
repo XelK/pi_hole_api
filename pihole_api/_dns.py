@@ -1,7 +1,7 @@
 """
-Execute dns module
+Pihole python API client.
+Module for dns calls
 """
-
 
 def dns(pihole, action: None, ip_address=None, domain=None) -> dict:
     """
