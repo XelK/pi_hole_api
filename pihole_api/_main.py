@@ -11,7 +11,12 @@ import requests
 
 from ._dns import dns as _dns
 from ._dns import cname as _cname
-
+from ._core import disable as _disable
+from ._core import enable as _enable
+from ._list import get_domains as _get_domains
+from ._list import add_domain as _add_domain
+from ._list import replace_domain as _replace_domain
+from ._list import delete_domain as _delete_domain
 
 class Pihole:
     """
@@ -71,3 +76,39 @@ class Pihole:
                 - return: status of operation
         """
         return _cname(self, action, domain, target)
+
+    def disable(self, time=None) -> dict:
+        """
+        Permit disable protection
+        """
+        return _disable(self,time)
+
+    def enable(self) -> dict:
+        """
+        Permit disable protection
+        """
+        return _enable(self)
+
+    def get_domains(self,type) -> dict:
+        """
+        add/remove domain to whitelist/blacklist
+        """
+        return _get_domains(self,type)
+    
+    def add_domain(self,type,domain,comment=None) -> dict:
+        """
+        add/remove domain to whitelist/blacklist
+        """
+        return _add_domain(self,type,domain,comment)
+    
+    def replace_domain(self,type,domain,comment=None) -> dict:
+        """
+        add/remove domain to whitelist/blacklist
+        """
+        return _replace_domain(self,type,domain,comment)
+    
+    def delete_domain(self,type,domain,comment=None) -> dict:
+        """
+        add/remove domain to whitelist/blacklist
+        """
+        return _delete_domain(self,type,domain,comment)
