@@ -14,7 +14,7 @@ Execute api calls to py-hole server from python code.
 pip install pi-hole-api
 
 # dev version:
-pip install -i https://test.pypi.org/simple/ pihole-api
+pip install -i https://test.pypi.org/simple/ pi-hole-api
 ```
 
 ## Examples
