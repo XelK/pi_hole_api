@@ -19,7 +19,7 @@
 #  exit 1
 #fi
 
-FOLDER="pihole_api"
+FOLDER="src/pihole_api"
 
 # black check:
 python -m black --diff $FOLDER/ #$PYFILE #--check $PYFILE
