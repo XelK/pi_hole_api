@@ -1,12 +1,21 @@
-# pihole_api
+# pi_hole_api
 [![Pylint](https://github.com/XelK/pihole_api/actions/workflows/pylint.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/pylint.yml)
 
-<!-- [![Publish Python distributions to PyPI and TestPyPI](https://github.com/XelK/pihole_api/actions/workflows/python-package.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/python-package.yml) -->
+[![Publish Python distributions to PyPI and TestPyPI](https://github.com/XelK/pihole_api/actions/workflows/python-package.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/python-package.yml)
 
 [![Build and upload to pypi](https://github.com/XelK/pihole_api/actions/workflows/build-prod.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/build-prod.yml)
 
 Python api module for pi-hole server (https://pi-hole.net/).
-Permit to perform api calls from python code.
+Execute api calls to py-hole server from python code.
+
+## Installation
+```python
+# prod version:
+pip install pi-hole-api
+
+# dev version:
+pip install -i https://test.pypi.org/simple/ pihole-api
+```
 
 ## Examples
 ### Create class
