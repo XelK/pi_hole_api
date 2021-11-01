@@ -87,26 +87,26 @@ class Pihole:
         """
         return _enable(self)
 
-    def get_domains(self, type) -> dict:
+    def get_domains(self, showtype) -> dict:
         """
         list domains from whitelist/blacklist
         """
-        return _get_domains(self, type)
+        return _get_domains(self, showtype)
 
-    def add_domain(self, type, domain, comment=None) -> dict:
+    def add_domain(self, showtype, domain, comment=None) -> dict:
         """
         add domain to whitelist/blacklist
         """
-        return _add_domain(self, type, domain, comment)
+        return _add_domain(self, showtype, domain, comment)
 
-    def replace_domain(self, type, domain, comment=None) -> dict:
+    def replace_domain(self, showtype, domain, comment=None) -> dict:
         """
         replace domain in whitelist/blacklist
         """
-        return _replace_domain(self, type, domain, comment)
+        return _replace_domain(self, showtype, domain, comment)
 
-    def delete_domain(self, type, domain, comment=None) -> dict:
+    def delete_domain(self, showtype, domain, comment=None) -> dict:
         """
         remove domain from whitelist/blacklist
         """
-        return _delete_domain(self, type, domain, comment)
+        return _delete_domain(self, showtype, domain, comment)
