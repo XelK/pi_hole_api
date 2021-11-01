@@ -20,25 +20,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    # - name: Analysing the code with pylint
-    #   run: |
-    #     #pylint `ls -R|grep .py$|xargs` see: https://stackoverflow.com/questions/68860511/github-actions-pylint-fails-with-f0001-no-module-named-init-py-fatal
-    #     python -m pylint --fail-under=8 `find -regextype egrep -regex '(.*.py)$'` |
-    #     tee pylint.txt
-    # - name: Upload pylint.txt as artifact
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: pylint report
-    #     path: pylint.txt
     - name: Build package
       run: |
         pip install build
         python -m build
-    - name: Publish a Python distribution to PyPI
-      #if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
-      uses: pypa/gh-action-pypi-publish@v1.4.2
-      with:
+    - name: Publish a Python distribution to PyPI test
+      run: |
+        pip install twine
+        twine upload --username ${{ user }} --password ${{ password }} --non-interactive --repository ${{ repo }} dist/* --verbose
+      env:
         user: __token__
         password: ${{ secrets.TESTPYPI_PSW }}
-        repository_url: https://test.pypi.org/legacy/
+        #repository_url: https://test.pypi.org/legacy/
         verbose: true
+        repo: testpypi
