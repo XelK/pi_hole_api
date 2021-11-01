@@ -3,6 +3,7 @@ Pihole python API client.
 Module for enable/disable protection
 """
 
+
 def disable(pihole, time=None) -> dict:
     """
     Permit disable protection
