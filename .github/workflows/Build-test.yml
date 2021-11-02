@@ -1,4 +1,4 @@
-name: Build and publish to test.pypi
+name: Build test
 
 on: [push]
 
@@ -34,13 +34,3 @@ jobs:
         --wheel
         --outdir dist/
         .
-#    - name: Publish distribution 📦 to Test PyPI
-#      uses: pypa/gh-action-pypi-publish@v1.4.2
-#      with:
-#        password: ${{ secrets.TESTPYPI_PSW }}
-#        repository_url:  https://test.pypi.org/legacy/
-#    - name: Publish distribution 📦 to PyPI
-#      if: startsWith(github.ref, 'refs/tags')
-#      uses: pypa/gh-action-pypi-publish@master
-#      with:
-#        password: ${{ secrets.PYPI_API_TOKEN }}
