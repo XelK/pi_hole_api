@@ -23,7 +23,7 @@ def dns(pihole, action: None, ip_address=None, domain=None) -> dict:
     _params = {"action": action, "token": pihole.token}
     _actions = ("get", "add", "delete")
     if action not in _actions:
-        return "Action not permitted! Use " + str(_actions)
+        return {"success": False, "message": "Action not permitted! Use " + str(_actions)}
     if action in _actions[0]:
         _response = pihole.session.post(_dns_url, _params).json()
     if action in _actions[1:]:
@@ -54,7 +54,7 @@ def cname(pihole, action: None, domain=None, target=None) -> dict:
     _params = {"action": action, "token": pihole.token}
     _actions = ("get", "add", "delete")
     if action not in _actions:
-        return "Action not permitted! Use " + str(_actions)
+        return {"success": False, "message": "Action not permitted! Use " + str(_actions)}
     if action in _actions[0]:
         _response = pihole.session.post(_cname_url, _params).json()
     if action in _actions[1:]:
