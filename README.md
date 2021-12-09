@@ -1,9 +1,7 @@
 # pi_hole_api
 [![Pylint](https://github.com/XelK/pihole_api/actions/workflows/pylint.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/pylint.yml)
 
-[![Publish Python distributions to PyPI and TestPyPI](https://github.com/XelK/pihole_api/actions/workflows/python-package.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/python-package.yml)
-
-[![Build and upload to pypi](https://github.com/XelK/pihole_api/actions/workflows/build-prod.yml/badge.svg)](https://github.com/XelK/pihole_api/actions/workflows/build-prod.yml)
+[![Build test](https://github.com/XelK/pi_hole_api/actions/workflows/Build-main.yml/badge.svg)](https://github.com/XelK/pi_hole_api/actions/workflows/Build-main.yml)
 
 Python api module for pi-hole server (https://pi-hole.net/).
 Execute api calls to py-hole server from python code.
